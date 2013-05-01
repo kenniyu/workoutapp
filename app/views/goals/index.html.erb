@@ -1,0 +1,40 @@
+<h1>Your Goals</h1>
+
+<div class="goals-wrapper eight columns">
+  <% if @goals.present? %>
+    <ul class="goals-list">
+    <% @goals.each do |goal| %>
+      <li class="goal-item">
+        <%= link_to "#{goal.name}", goal_path(goal.id), :class => "goal-preview", :"data-goal-id" => goal.id %>
+        <%= link_to image_tag("edit.png"), edit_goal_path(goal.id), :class => "goal-inline-edit" %>
+        <%= link_to image_tag("delete.png"), goal_path(goal.id), :method => :delete, :class => "goal-delete" %>
+      </li>
+    <% end %>
+    </ul>
+  <% else %>
+    <p>You do not have any goals.</p>
+  <% end %>
+</div>
+
+<div class="goal-preview-container eight columns">
+  <div class="goal-preview-wrapper inactive">
+  </div>
+</div>
+<div class="eight columns offset-by-four create-goal-wrapper">
+  <%= link_to "+ Create a new goal!", new_goal_path(), :class => "lg gold btn" %>
+</div>
+
+<script type="text/javascript">
+
+  var options       = {
+                        'containers': {
+                          'previewContainer': '.goal-preview-wrapper',
+                          'goalsListContainer': '.goals-list'
+                        },
+                        'previewGoalBaseUrl': '<%= goals_path %>'
+                      },
+  goalPreview = new GoalPreview(options);
+
+  goalPreview.initControls();
+
+</script>

@@ -1,0 +1,57 @@
+  <div class="fieldset">
+    <div class="left">
+      <label class="inline sm">Goal</span>
+    </div>
+    <div class="right">
+      <span class="inline lg"><%= @friendly_goal_type %></span>
+    </div>
+  </div>
+
+  <div class="fieldset">
+    <div class="left">
+      <label class="inline sm">Reach Goal By</span>
+    </div>
+    <div class="right">
+      <span class="inline sm"><%= @goal.due_date.strftime("%b %e, %Y") %> (<%= distance_of_time_in_words(DateTime.now, @goal.due_date.to_datetime) %> left)</span>
+    </div>
+  </div>
+
+  <div class="fieldset">
+    <div class="left">
+      <label class="inline sm">Starting Weight</span>
+    </div>
+    <div class="right">
+      <span class="inline sm"><%= @goal.start_value %> lbs</span>
+    </div>
+  </div>
+
+  <div class="fieldset">
+    <div class="left">
+      <label class="inline sm">Final Weight</span>
+    </div>
+    <div class="right">
+      <span class="inline sm"><%= @goal.final_value %> lbs</span>
+    </div>
+  </div>
+
+  <div class="fieldset">
+    <div class="left">
+      <label class="inline sm">Description</span>
+    </div>
+    <div class="right">
+      <span class="inline sm"><%= @goal.description %></span>
+    </div>
+  </div>
+
+  <% if @ajax %>
+  <div class="fieldset">
+    <div class="left">
+      <label class="inline sm"></span>
+    </div>
+    <div class="right">
+      <span class="inline sm"><%= link_to "More →", goal_path(@goal.id) %></span>
+    </div>
+  </div>
+  <% end %>
+
+

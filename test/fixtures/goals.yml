@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  type: 
+  due_date: 2013-03-24 12:05:23
+  start_value: 1.5
+  final_value: 1.5
+  description: MyString
+
+two:
+  user_id: 1
+  type: 
+  due_date: 2013-03-24 12:05:23
+  start_value: 1.5
+  final_value: 1.5
+  description: MyString

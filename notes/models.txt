@@ -1,0 +1,23 @@
+=============== Exercise Model ===============
+name:string (zercher squats)
+equipment_id:integer (1, 2, 3)
+force:string (push/pull)
+level:string (beginner, intermediate, expert)
+mechanics_type:string (isolated/compound)
+exercise_type:string (strength)
+
+=============== ExerciseMuscle Model ===============
+(links an exercise to multiple target muscles)
+ExerciseMuscle:
+exercise_id:integer
+muscle_id:1
+focus:string (primary/secondary)
+
+=============== Muscle Model ===============
+Muscle:
+name:string
+common_name:string
+
+=============== Equipment Model ===============
+Equipment:
+name:string (Barbell)

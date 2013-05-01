@@ -1,0 +1,92 @@
+<h1>Edit Your Profile</h1>
+
+<div class="profile-wrapper">
+  <div class="left">
+    <figure class="profile-pic">
+      <%= image_tag "http://www.wallpaperswala.com/wp-content/gallery/ronnie-coleman/ronnie-coleman-showing-body.jpg", :width => "100%", :height => "100%" %>
+    </figure>
+    <h3>@<%= current_user.username %></h3>
+    <h3>Joined on <%= current_user.created_at.strftime("%b %d, %Y") %></h3>
+  </div>
+
+  <div class="right">
+    <%= form_for(current_user, :url => update_profile_path(current_user), :html => { :id => 'edit-profile-form' } ) do |f| %>
+
+    <div class="fieldset">
+      <%= f.label :age, :class => "inline sm" %>
+      <%= f.number_field :age, :class => "inline sm", :id => "user-age" %>
+    </div>
+
+    <div class="fieldset">
+      <%= f.label :gender, :class => "inline sm" %>
+      <%= f.radio_button(:gender, "Male", :id => "user-gender-male") %>Male
+      <%= f.radio_button(:gender, "Female", :id => "user-gender-female") %>Female
+    </div>
+
+    <div class="fieldset">
+      <%= f.label :weight, :class => "inline sm" %>
+      <%= f.text_field :weight, :class => "inline sm", :id => "user-weight" %> lbs
+    </div>
+
+    <div class="fieldset">
+      <%= f.label :height, :class => "inline sm" %>
+      <%= f.select(:height, options_for_select(@heights[:us], :selected => "#{current_user.height.to_i}"), {}, :id => "user-height") %>
+
+    </div>
+
+    <div class="fieldset">
+      <%= f.label :body_fat, "Body Fat", :class => "inline sm",%>
+      <%= f.text_field :body_fat_pct, :class => "inline sm", :id => "user-body-fat-pct" %>%
+    </div>
+
+    <div class="fieldset">
+      <%= f.label :activity_level, "Activity Level", :class => "inline sm" %>
+      <%= f.select(:activity_level, options_for_select(@activity_levels, :selected => current_user.activity_level), {}, :class => "inline lg", :id => "user-activity-level" ) %>
+    </div>
+
+    <div class="fieldset">
+      <label class="inline sm">LBM</label>
+      <span class="inline lbm"><%= @body_metrics[:lbm] if @body_metrics %></span> lbs
+    </div>
+
+    <div class="fieldset">
+      <label class="inline sm">BMR</label>
+      <span class="inline bmr"><%= @body_metrics[:bmr] if @body_metrics %></span>
+    </div>
+
+    <div class="fieldset">
+      <label class="inline sm">Calories/Day</label>
+      <span class="inline hbf"><%= @body_metrics[:hbf] if @body_metrics %></span>
+    </div>
+
+
+    <div class="fieldset submit">
+      <%= f.label :" ", :class => "inline sm" %>
+      <%= f.submit "Update Profile", :class => "md round btn gold" %>
+      or <%= link_to "Cancel", profile_path(current_user.id) %>
+    </div>
+  <% end %>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+    var options       = {
+                          'containers': {
+                            'form': '#edit-profile-form',
+                            'bmr': '.bmr',
+                            'hbf': '.hbf',
+                            'lbm': '.lbm',
+                            'age-input': '#user-age',
+                            'gender-male-input': '#user-gender-male',
+                            'gender-female-input': '#user-gender-female',
+                            'weight-input': '#user-weight',
+                            'height-input': '#user-height',
+                            'body-fat-pct-input': '#user-body-fat-pct',
+                            'activity-level-input': '#user-activity-level'
+                          }
+                        },
+        profileEditor = new ProfileEditor(options);
+
+  profileEditor.initControls();
+</script>

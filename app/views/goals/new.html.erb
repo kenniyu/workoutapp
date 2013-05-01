@@ -1,0 +1,149 @@
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+
+<div class="goals-wrapper nine columns">
+  <h1>Create a Goal</h1>
+  <% if @new_goal %>
+    <%= form_for(@new_goal, :url => goals_path(current_user), :html => { :id => 'new-goal-form' }, :remote => true ) do |f| %>
+
+    <div class="fieldset">
+      <div class="left">
+      <%= f.label :name, "Goal Name", :class => "inline sm" %>
+      </div>
+      <div class="right">
+        <%= f.text_field :name, :class => "inline md", :id => "goal-name" %>
+        <div class="error inactive"></div>
+      </div>
+    </div>
+
+    <div class="fieldset">
+      <div class="left">
+      <%= f.label :goal_type, "Goal Type", :class => "inline sm" %>
+      </div>
+      <div class="right">
+        <%= f.select(:goal_type, options_for_select(@goal_types), {}, :class => "inline md", :id => "goal-type" ) %>
+        <div class="error inactive"></div>
+      </div>
+    </div>
+
+    <!--
+    <div class="fieldset">
+      <div class="left">
+        <%= label_tag :importance, "Importance", :class => "inline sm" %>
+      </div>
+      <div class="right">
+        <%= select_tag :importance, options_for_select([["Steady Fat Loss", "steady"], ["Drastic Fat Loss", "drastic"]]), :include_blank => true, :id => "goal-importance", :class => "inline md" %>
+        <div class="error inactive"></div>
+      </div>
+    </div>
+    -->
+
+    <div class="fieldset">
+      <div class="left">
+        <%= f.label :due_date, "Reach Goal By", :class => "inline sm" %>
+      </div>
+      <div class="right">
+        <%= f.text_field :due_date, :id => "goal-due-date", :class => "inline md datepicker" %>
+        <div class="error inactive"></div>
+      </div>
+    </div>
+
+    <div class="fieldset">
+      <div class="left">
+        <%= label_tag :start_value , "Current Weight", :class => "inline sm" %>
+      </div>
+      <div class="right">
+        <%= number_field_tag :start_value, current_user.weight, :id => "goal-start-value", :disabled => "disabled", :class => "inline sm" %> lbs
+      </div>
+    </div>
+
+    <div class="fieldset">
+      <div class="left">
+        <%= f.label :final_value , "Goal Weight", :class => "inline sm" %>
+      </div>
+      <div class="right">
+        <%= f.number_field :final_value, :id => "goal-final-value", :class => "inline sm" %> lbs
+        <div class="error inactive"></div>
+      </div>
+    </div>
+
+    <div class="fieldset">
+      <div class="left">
+        <%= f.label :description, "Description", :class => "inline sm" %>
+      </div>
+      <div class="right">
+        <%= f.text_area :description, :id => "goal-description", :class => "inline sm", :placeholder => "(Optional)", :size => "40x4" %>
+      </div>
+    </div>
+
+    <div class="fieldset inactive">
+      <div class="left">
+        <%= label_tag :delta, "Desired Goal", :class => "inline sm" %>
+      </div>
+      <div class="right">
+        <span id="goal-delta"></span> lbs over <span id="delta-time"></span> days
+        <span id="goal-rate"></span>
+      </div>
+    </div>
+
+    <div class="fieldset submit">
+      <div class="left">
+        <%= f.label :" ", :class => "inline sm" %>
+      </div>
+      <div class="right">
+        <%= f.submit "Begin Your Goal", :class => "md round btn gold", :id => "goal-submit", :disabled => "disabled" %>
+        or <%= link_to "Cancel", goals_path %>
+      </div>
+    </div>
+    <% end %>
+  <% else %>
+    <p>To create a goal, you must first complete your <%= link_to "profile", :edit_profile %>
+  <% end %>
+</div>
+
+<div class="notes-wrapper seven columns">
+  <h2>Protips</h2>
+  <ul class="notes-list">
+    <li>You should only achieve goals <strong>one at a time</strong></li>
+    <li><strong>Be held accountable</strong> for achieving/failing your goal</li>
+    <li>Make <strong>SMART</strong> goals</li>
+    <ul class="smart-list">
+      <li><strong>S</strong>pecific - Goal should be clear and unambiguous</li>
+      <li><strong>M</strong>easurable - Be able to measure your progress</li>
+      <li><strong>A</strong>ttainable - Goal should be realisitic</li>
+      <li><strong>R</strong>elevant - Choose a goal that matters</li>
+      <li><strong>T</strong>ime-bound - Give your goal a time frame</li>
+    </ul>
+  </ul>
+</div>
+
+<script type="text/javascript">
+
+  var options       = {
+                        'containers': {
+                          'form': '#new-goal-form',
+                          'goal-name-input': '#goal-name',
+                          'goal-type-input': '#goal-type',
+                          'due-date-input': '#goal-due-date',
+                          'start-value-input': '#goal-start-value',
+                          'final-value-input': '#goal-final-value',
+                          'delta-input': '#goal-delta',
+                          'delta-time': '#delta-time',
+                          'goal-description-input': '#goal-description',
+                          'goal-submit': '#goal-submit',
+                          'goal-rate': '#goal-rate'
+                        },
+                        'submitUrl': '<%= goals_path() %>'
+                      },
+  goal = new Goal(options);
+
+  goal.initControls();
+
+  $().ready(function() {
+    var tomorrow = new Date( (new Date()).getTime() + 24 * 60 * 60 * 1000 );
+    $('.datepicker').datepicker({
+      minDate: tomorrow
+    });
+    $('#goal-final-value').regexMask(/^\d+(,\d+)?$/);
+  });
+
+</script>

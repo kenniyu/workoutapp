@@ -1,0 +1,69 @@
+<% if current_user.id == @user.id %>
+  <h1>Your Profile</h1>
+<% else %>
+  <h1>@<%= @user.username %>'s Profile</h1>
+<% end %>
+
+<div class="profile-wrapper">
+  <div class="left">
+    <figure class="profile-pic">
+      <%= image_tag "http://www.wallpaperswala.com/wp-content/gallery/ronnie-coleman/ronnie-coleman-showing-body.jpg", :width => "100%", :height => "100%" %>
+    </figure>
+    <h3>@<%= @user.username %></h3>
+    <h3>Joined on <%= @user.created_at.strftime("%b %d, %Y") %></h3>
+    <% if current_user.id == @user.id %>
+    <p>
+      <%= link_to "Edit", edit_profile_path %>
+    </p>
+    <% end %>
+  </div>
+
+  <div class="right">
+
+    <div class="fieldset">
+      <%= label_tag :age, 'Age', :class => "inline sm" %>
+      <span class="inline"><%= @user.age %></span>
+    </div>
+
+    <div class="fieldset">
+      <%= label_tag :gender, 'Gender', :class => "inline sm" %>
+      <span class="inline"><%= @user.gender %></span>
+    </div>
+
+    <div class="fieldset">
+      <%= label_tag :weight, 'Weight', :class => "inline sm" %>
+      <span class="inline"><%= @user.weight %> lbs</span>
+    </div>
+
+    <div class="fieldset">
+      <%= label_tag :height, 'Height', :class => "inline sm" %>
+      <span class="inline"><%= @height %></span>
+    </div>
+
+    <div class="fieldset">
+      <%= label_tag :"Body Fat", 'Body Fat', :class => "inline sm" %>
+      <span class="inline"><%= @user.body_fat_pct %>%</span>
+    </div>
+
+    <div class="fieldset">
+      <%= label_tag :activity_level, 'Activity Level', :class => "inline sm" %>
+      <span class="inline"><%= @activity_level %></span>
+    </div>
+
+    <div class="fieldset">
+      <label class="inline sm">LBM</label>
+      <span class="inline lbm"><%= @body_metrics[:lbm] if @body_metrics %> lbs</span>
+    </div>
+
+    <div class="fieldset">
+      <label class="inline sm">BMR</label>
+      <span class="inline bmr"><%= @body_metrics[:bmr] if @body_metrics %></span>
+    </div>
+
+    <div class="fieldset">
+      <label class="inline sm">Calories/Day</label>
+      <span class="inline hbf"><%= @body_metrics[:hbf] if @body_metrics %></span>
+    </div>
+
+  </div>
+</div>

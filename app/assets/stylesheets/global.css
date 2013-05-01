@@ -1,0 +1,930 @@
+/*
+* Copyright 2013, WorkoutApp
+*/
+
+/************************************************************/
+/* Desktop Standard DPI (Non-Retina)*************************/
+/************************************************************/
+
+/* Skeleton Overrides  **************************************/
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-weight: 200;
+  font-size: 14px;
+	height: 100%;
+  background: #F0f0f0;
+  color: #333;
+  /*background: #fff url(/assets/bg2.png);*/
+}
+
+.container, .column, .columns {
+	-webkit-box-sizing: content-box !important;
+	-moz-box-sizing: content-box !important;
+	box-sizing: content-box !important;
+	position: relative;
+}
+
+.container.main {
+  padding-top: 85px;
+  text-shadow: 0 1px 0 #fff;
+}
+
+/* General Formatting  ************************************/
+
+em {
+	font-style: italic;
+}
+
+	em.highlight {
+		background: #fffdf1;
+		padding: 5px 8px;
+		font-style: normal;
+	}
+
+strong {
+	font-weight: 700;
+}
+
+/* Highlights */
+
+.highlight {
+	background: #ffffed;
+}
+
+h1.highlight {
+	padding: 8px 10px;
+}
+
+/* Links **************************************************/
+
+a {
+	color: #4D6E88;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/* Headings ***********************************************/
+
+h1, h2, h3 {
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+	line-height: 1.25em;
+  margin: 0;
+	font-weight: 100;
+}
+
+h1 {
+	color: #616a7a;
+	font-size: 40px;
+  padding: 20px 0;
+}
+
+h2, h3 {
+  font-weight: 100;
+	color: #697384;
+	font-size: 28px;
+  padding: 5px 0;
+}
+
+	p + h1, p + h2, p + h3, ul + h1, ul + h2, ul + h3 {
+		margin-top: 25px;
+	}
+
+	p + p, p + ul, ul + p {
+		margin-top: 10px;
+	}
+
+h3 {
+	font-size: 15px;
+}
+
+/* Paragraphs *********************************************/
+
+p, ul {
+	color: #737e91;
+	line-height: 40px;
+	font-size: 15px;
+}
+
+p.sm {
+	font-size: 13px;
+	line-height: 1.6em;
+}
+
+p.md {
+	font-size: 15px; /* Also Default Size */
+	line-height: 1.5em;
+}
+
+p.lg {
+	font-size: 18px;
+	line-height: 1.4em;
+}
+
+/* Lists ****************************************************/
+
+ul {
+	list-style-type: none;
+  margin: 0;
+  padding: 0;
+  line-height: 30px;
+
+  li {
+  }
+}
+
+
+/* Spacers ************************************************/
+
+hr {
+	height: 0;
+	border: none;
+	background: none;
+	margin: 0;
+	padding: 0;
+	clear: both;
+}
+
+hr.sm {
+	height: 20px;	
+}
+
+	hr.sm.dashed {
+		margin: 20px 0;
+	}
+
+hr.md {
+	height: 30px;
+}
+
+	hr.md.dashed {
+		margin: 30px 0;
+	}
+
+hr.lg {
+	height: 40px;
+}
+
+	hr.lg.dashed {
+		margin: 40px 0;
+	}
+
+hr.dashed {
+	height: 0;
+	border-top: 1px dashed #dcdcdc;
+}
+
+/* Header *************************************************/
+
+header {
+  color: #eee;
+	height: 85px;
+	width: 100%;
+  border-top: 1px solid #ccc;
+
+  border-bottom: 1px solid #ccc;
+
+	position: fixed;
+  top: 0;
+  left: 0;
+  /*
+  background: #3E6288;
+  */
+  background: #f0f0f0; /* Old browsers */
+  background: -moz-linear-gradient(top,  #f0f0f0 0%, #e0e0e0 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f0f0f0), color-stop(100%,#e0e0e0)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #f0f0f0 0%,#e0e0e0 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #f0f0f0 0%,#e0e0e0 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #f0f0f0 0%,#e0e0e0 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #f0f0f0 0%,#e0e0e0 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f0f0', endColorstr='#e0e0e0',GradientType=0 ); /* IE6-9 */
+
+  z-index: 100;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+
+  /*
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  background: #FFF;
+  border-bottom: solid 1px #BEBEBE;
+  */
+}
+
+	header:after {
+		content: ' ';
+		position: absolute;
+		bottom: -4px;
+		left: 0;
+		height: 4px;
+		width: 100%;
+		z-index: 9999;
+	}
+
+	#logo {
+		white-space: nowrap;
+		display: block;
+		float: left;
+		margin: 18px 0 0 0;
+		width: 159px;
+		height: 41px;
+    line-height: 41px;
+	}
+
+	header nav {
+		float: right;
+	}
+
+		header nav select {
+			display: none;
+		}
+
+		header nav ul {
+			list-style-type: none;
+			margin: 0;
+			}
+
+			header nav li {
+				text-indent: 0;
+				margin-bottom: 0;
+				float: left;
+        border-left: 1px solid #fff;
+        border-right: 1px solid #b0b0b0;
+			}
+
+      header nav li:last-child {
+        box-shadow: 1px 0 0 #fff;
+      }
+
+      header nav li:first-child {
+        box-shadow: -1px 0 0 #b0b0b0;
+      }
+
+
+			header nav li.active {
+			}
+
+				header nav li.active a {
+					border-left: none;
+				}
+
+				header nav li a {
+					line-height: 0;
+          font-family: 'Helvetica Neue', Helvetica, sans-serif;
+					font-weight: 700;
+					font-size: 15px;
+					text-decoration: none;
+					text-shadow: 0 1px 1px #fff;
+					padding: 65px 30px 0 30px;
+					height: 83px;
+					display: block;
+          z-index: 1;
+				}
+
+
+				header nav li a:hover {
+					background-color: rgba(255, 255, 255, .5);
+					text-decoration: none;
+				}
+
+				header nav li.active a:hover {
+					background-color: transparent;
+				}
+
+				header nav li#you a {
+					background-position: 38px 18px;
+				}
+
+				header nav li#merchants a {
+					background-position: 55px -58px;
+				}
+
+				header nav li#developers a {
+					background-position: 63px -134px;
+				}
+
+				header nav li#blog a {
+					background-position: 32px -210px;
+				}
+
+				header nav li#about a {
+					background-position: 51px -286px;
+				}
+
+        .nav-options .option {
+          position: relative;
+        }
+
+        figure.nav-icon {
+          width: 100%;
+          height: 50px;
+          position: absolute;
+          top: 5px;
+          z-index: -1;
+        }
+
+        figure.nav-icon.home {
+          background: url(home.png) 50% 50% no-repeat;
+        }
+        figure.nav-icon.exercises {
+          background: url(exercises.png) 50% 50% no-repeat;
+        }
+        figure.nav-icon.logout {
+          background: url(logout.png) 50% 50% no-repeat;
+        }
+
+/* Footer ****************************************************/
+footer {
+  text-align: center;
+  padding: 30px 0;
+  color: #aaa;
+
+  font-size: 12px;
+}
+
+/* Buttons ***************************************************/			
+
+.btn {
+	font-family: "Helvetica", sans-serif !important;
+	font-weight: bold;
+	line-height: 0;
+	display: inline-block;
+	text-decoration: none;
+	text-align: center;
+	-webkit-background-clip: padding-box; /* Background bleed fix */
+	font-weight: bold;
+	border-radius: 5px;
+}
+
+.btn:hover {
+	text-decoration: none;
+}
+
+.btn + .btn {
+	margin-left: 8px;
+}
+
+/* Styles */
+
+.btn.sm.rounded {
+	border-radius: 30px;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+.btn.md.rounded {
+	border-radius: 36px;
+	padding-left: 14px;
+	padding-right: 14px;
+}
+
+.btn.lg.rounded {
+	border-radius: 42px;
+}
+
+/* Sizes */
+
+.btn.sm {
+	height: 30px;
+	font-size: 11px !important;
+	padding: 7px 9px;
+}
+
+.btn.md {
+	height: 36px;
+	font-size: 12px !important;
+	padding: 8px 12px;
+}
+
+.btn.lg {
+	height: 42px;
+	padding: 10px 14px;
+	font-size: 13px !important;
+}
+
+	p + .btn.sm {
+		margin-top: 15px;
+	}
+
+	p + .btn.md {
+		margin-top: 15px;
+	}
+
+	p + .btn.lg {
+		margin-top: 15px;
+	}
+
+/* Colors */
+
+.btn.gold {
+	color: #8f713b;
+	border: 1px solid #40341d;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+
+  background: #f8efd3; /* Old browsers */
+  background: -moz-linear-gradient(top,  #f8efd3 0%, #d3a052 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8efd3), color-stop(100%,#d3a052)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #f8efd3 0%,#d3a052 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #f8efd3 0%,#d3a052 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #f8efd3 0%,#d3a052 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #f8efd3 0%,#d3a052 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8efd3', endColorstr='#d3a052',GradientType=0 ); /* IE6-9 */
+}
+
+.btn.silver {
+	color: #586885;
+	border: 1px solid #7E612B;
+	text-shadow: 0 1px 0 #fff;
+}
+
+	.btn.sm.silver {
+		background-position: 0 -319px;
+	}
+
+	.btn.md.silver {
+		background-position: 0 -348px;
+	}
+
+	.btn.lg.silver {
+		background-position: 0 -383px;
+	}
+
+.btn.white {
+	color: #586885;
+	border: 1px solid #c8ced8;
+	text-shadow: 0 1px 0 #fff;
+}
+
+	.btn.sm.white {
+		background-position: 0 -424px;
+	}
+
+	.btn.md.white {
+		background-position: 0 -453px;
+	}
+
+	.btn.lg.white {
+		background-position: 0 -488px;
+	}
+
+.btn.blue {
+	color: #fff;
+	border: 1px solid #67ABCC;
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.3) !important;
+
+  background: #d5ebfb; /* Old browsers */
+  background: -moz-linear-gradient(top,  #d5ebfb 0%, #89c3eb 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d5ebfb), color-stop(100%,#89c3eb)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #d5ebfb 0%,#89c3eb 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #d5ebfb 0%,#89c3eb 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #d5ebfb 0%,#89c3eb 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #d5ebfb 0%,#89c3eb 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d5ebfb', endColorstr='#89c3eb',GradientType=0 ); /* IE6-9 */
+
+}
+
+
+.btn.disabled, .btn[disabled] {
+	opacity: 0.4;
+	cursor: auto;
+}
+
+.btn.submit {
+
+}
+
+/* Forms ***********************************************/
+
+label {
+	font: bold 13px "Helvetica", Arial, sans-serif;
+	text-shadow: 0 1px 0 #fff;
+	color: #BEB383;
+}
+
+label.inline {
+  line-height: 40px;
+  text-align: right;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+label.sm {
+  width: 100px;
+}
+
+label.md {
+  width: 200px;
+}
+
+label.lg {
+  width: 300px;
+}
+
+input, textarea, select {
+	border-radius: 5px;
+	background: #fff;
+	border: 1px solid #999;
+	font-size: 13px;
+	color: #666;
+	padding: 8px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	margin: 0 3px 0 0;
+  box-shadow: 0 1px 1px #fff;
+}
+
+
+select {
+  font-size: 12px;
+  height: 34px;
+}
+
+/* Removing default UI controls for Number inputs */
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+input::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type=submit]:hover {
+	cursor: pointer;
+}
+input[disabled="disabled"] {
+  background: rgba(0,0,0,0);
+}
+
+input.inline.sm, select.inline.sm {
+  width: 60px;
+}
+
+input.inline.md, select.inline.md {
+  width: 180px;
+}
+
+input.inline.lg, select.inline.lg {
+  width: 500px;
+}
+
+input.stretched, select.stretched {
+  width: 100%;
+}
+
+.fieldset {
+  line-height: 40px;
+  padding-bottom: 3px;
+  overflow: hidden;
+}
+
+.fieldset .left {
+  float: left;
+}
+
+.fieldset .right {
+  float: left;
+  max-width: 300px;
+}
+
+.fieldset.total {
+  border-top: 1px dashed #ccc;
+}
+
+.fieldset.inactive {
+  display: none;
+}
+
+.fieldset.submit {
+  margin-top: 20px;
+}
+
+
+form .error {
+  color: #AF2C00 !important;
+  margin: 3px 0 10px 0;
+  line-height: 20px;
+}
+form .error.inactive {
+  display: none;
+}
+
+
+/* Modals ***********************************************/
+.modal-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
+	z-index: 9999;
+}
+
+.modal-container.inactive {
+	display: none;
+}
+
+	.modal {
+		width: 420px;
+		margin: auto;
+		position: relative;
+		top: 15%;
+		text-align: center;
+		background: #fff;
+		border-radius: 5px;
+		box-shadow: 0 0 20px #000;
+	}
+
+	.modal.inactive {
+		display: none;
+	}
+
+		.modal .header {
+			text-align: center;
+			height: 54px;
+			border-radius: 5px 5px 0 0;
+			position: relative;
+			border-bottom: 1px solid #cfcfcf;
+		}
+
+			.modal .header h3 {
+				line-height: 54px;
+			}
+
+			.modal .header .close {
+				background-size: 16px 16px;
+				text-indent: 100%;
+				white-space: nowrap;
+				overflow: hidden;
+
+				display: block;
+				position: absolute;
+				top: 20px;
+				right: 20px;
+				width: 16px;
+				height: 16px;
+			}
+
+		.modal .body {
+		}
+
+			.modal .body .btn {
+				padding: 20px 10px;
+				width: 100%;
+			}
+
+			.modal .body form {
+				margin: 15px auto 0 auto;
+			}
+
+				.modal .body form textarea {
+					height: 80px;
+					resize: none;
+				}
+
+			/* Modal action button */
+			.modal .body .modal-action {
+				margin-top: 10px;
+				width: 100%;
+			}
+
+/* Activity Indicator ***********************************************/
+.spinner-container {
+	height: 200px;
+	width: 100%;
+	position: absolute;
+}
+
+.spinner-container.inactive {
+	display: none;
+}
+
+.spinner {
+	border-radius: 10px;
+	width: 70px;
+	height: 70px;
+	padding: 30px;
+	background-position: 50% 50%;
+	box-shadow: 0 0 10px #000;
+	margin: 50px auto;
+}
+
+/* Gradient *************************************************/
+.gradient-left {
+  background: #feffff; /* Old browsers */
+  background: -moz-linear-gradient(left,  #feffff 70%, #e8e8e8 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(70%,#feffff), color-stop(100%,#e8e8e8)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left,  #feffff 70%,#e8e8e8 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  #feffff 70%,#e8e8e8 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  #feffff 70%,#e8e8e8 100%); /* IE10+ */
+  background: linear-gradient(to right,  #feffff 70%,#e8e8e8 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', endColorstr='#e8e8e8',GradientType=1 ); /* IE6-9 */
+}
+
+.gradient-right {
+  background: #e8e8e8; /* Old browsers */
+  background: -moz-linear-gradient(left,  #e8e8e8 0%, #feffff 30%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#e8e8e8), color-stop(30%,#feffff)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left,  #e8e8e8 0%,#feffff 30%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  #e8e8e8 0%,#feffff 30%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  #e8e8e8 0%,#feffff 30%); /* IE10+ */
+  background: linear-gradient(to right,  #e8e8e8 0%,#feffff 30%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8e8e8', endColorstr='#feffff',GradientType=1 ); /* IE6-9 */
+}
+
+/************************************************************/
+/* Desktop Hi-DPI (Retina) **********************************/
+/************************************************************/
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5) {
+  body {
+    background-image: url(/assets/bg@2x.jpg);
+    background-size: 256px 256px;
+  }
+
+	/* Header ***********************************************/
+
+	header {
+		background-size: 1px 1018px;
+	}
+
+		#logo {
+			background-size: 159px 41px;
+		}
+
+		header nav li.active {
+			background-size: 1px 1018px;
+		}
+
+			header nav li a {
+				background-size: 59px 330px;
+			}
+
+	/* Buttons *********************************************/		
+
+	.btn {
+		background-size: 1px 1018px;
+	}
+
+	/* Modals ***********************************************/
+
+		.modal .header {
+			background-size: 1px 1018px;
+		}
+
+			.modal .header .close {
+				background-size: 16px 16px;
+			}
+
+  /* Spinner **********************************************/
+  .spinner {
+    background-size: 40px 40px;
+  }
+}
+
+
+/************************************************************/
+/* Mobile Landscape Standard DPI (Non-Retina) ***************/
+/************************************************************/
+
+@media only screen and (max-width: 767px) {
+
+	/* General Formatting  ************************************/
+
+	.mb_hide {
+		display: none;
+	}
+
+	/* Headings ***********************************************/
+
+	h1 {
+		color: #616a7a;
+		font-size: 18px;
+	}
+
+	h2 {
+		color: #697384;
+		font-size: 15px;
+	}
+
+	h3 {
+		font-size: 13px;
+	}
+
+	/* Paragraphs *********************************************/
+
+	p, ul {
+		font-size: 13px;
+	}
+
+	p.sm {
+		font-size: 12px;
+	}
+
+	p.md {
+		font-size: 13px; /* Also Default Size */
+	}
+
+	p.lg {
+		font-size: 15px;
+	}
+
+	/* Header ***********************************************/
+
+	header {
+		height: 44px;
+		background-position: 0 -85px;
+	}
+
+		header nav {
+			border: none;
+		}
+
+		header nav ul {
+			display: none;
+		}
+
+			header nav select {
+				display: block;
+				margin: 12px 0 0 0;
+			}
+
+		#logo {
+			width: 109px;
+			height: 28px;
+			margin: 6px 0 0 0;
+		}
+
+
+	/* Buttons ********************************************/
+
+	/* Sizes */
+
+	.btn.sm, .btn.md, .btn.lg {
+		height: 25px;
+		padding-top: 11px;
+		font-size: 11px !important;
+	}	
+
+	/* Modals ********************************************/
+	.modal {
+		width: 300px;
+	}
+
+}
+
+/************************************************************/
+/* Mobile Landscape Hi-DPI (Retina) *************************/
+/************************************************************/
+
+@media only screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 767px) and (-moz-min-device-pixel-ratio: 1.5), only screen and (max-width: 767px) and (-o-min-device-pixel-ratio: 3/2), only screen and (max-width: 767px) and (min-device-pixel-ratio: 1.5) {
+
+	/* Header ***********************************************/
+
+	#logo {
+		background-size: 109px 28px;
+	}
+
+}
+
+
+/************************************************************/
+/* Mobile Portrait Standard DPI (Non-Retina) ****************/
+/************************************************************/
+
+@media only screen and (max-width: 479px) {
+	.modal-container {
+		min-height: 480px;
+	}
+
+		.modal {
+			width: 300px;
+		}
+
+				.modal .modal_body .modal_action {
+					width: 100%;
+					padding: 16px 10px;
+				}
+}
+
+
+/************************************************************/
+/* Mobile Portrait Hi-DPI (Retina) **************************/
+/************************************************************/
+
+@media only screen and (max-width: 479px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 479px) and (-moz-min-device-pixel-ratio: 1.5), only screen and (max-width: 479px) and (-o-min-device-pixel-ratio: 3/2), only screen and (max-width: 479px) and (min-device-pixel-ratio: 1.5) {
+	.modal {
+		width: 300px;
+	}
+}

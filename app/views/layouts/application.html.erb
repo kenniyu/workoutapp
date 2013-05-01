@@ -3,12 +3,59 @@
 <head>
   <title>Workoutapp</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
 
-<%= yield %>
+<header>
+  <section class="container">
+    <div class="sixteen-columns">
+      <%= link_to "LOGO GOES HERE", :root, :id => "logo" %>
+      <nav>
+      <% if user_signed_in? %>
+        <ul class="nav-options">
+          <li class="option">
+            <figure class="nav-icon home"></figure>
+            <figcaption><%= link_to "Home", root_path %></figcaption>
+          </li>
+          <li class="option">
+            <figure class="nav-icon exercises"></figure>
+            <figcaption><%= link_to "Exercises", exercises_path %></figcaption>
+          </li>
+          <li class="option">
+            <figure class="nav-icon logout"></figure>
+            <figcaption><%= link_to "Log Out", logout_path, :class => "last" %></figcaption>
+          </li>
+        </ul>
+      <% else %>
+        <%= link_to "Sign Up", :register %> to track your stats!
+        <%= link_to "Log In", :login %> to track your stats!
+      <% end %>
+    </nav>
+    </div>
+  </section>
+</header>
+
+<section class="container main">
+    <div class="sixteen-columns">
+    <%= yield %>
+    </div>
+</section>
+
+<footer>
+  <section class="container">
+    <div class="sixteen-columns">
+      &copy; Copyright 2013, Workoutapp, Inc. All Rights Reserved 
+      &middot; Privacy
+      &middot; Terms
+      &middot; Support
+    </div>
+  </section>
+</footer>
 
 </body>
+
 </html>

@@ -13,3 +13,18 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+
+// Global variable
+var WorkoutApp = {};
+
+$().ready(function() {
+
+  function WorkoutAppHelpers() {
+    var self = this;
+  }
+
+  WorkoutApp.Helpers = new WorkoutAppHelpers();
+});
+
+

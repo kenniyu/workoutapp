@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  equipment_id: 1
+  force: MyString
+  level: MyString
+  mechanics_type: MyString
+  exercise_type: MyString
+
+two:
+  name: MyString
+  equipment_id: 1
+  force: MyString
+  level: MyString
+  mechanics_type: MyString
+  exercise_type: MyString

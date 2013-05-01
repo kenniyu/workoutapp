@@ -1,0 +1,11 @@
+$('.error').addClass('inactive');
+
+<% if @success %>
+    goal.handleFormSuccess('<%= goal_path(@goal.id) %>');
+<% else %>
+  <% @goal_hash["errors"].each do |error| %>
+    $('<%= error["field"] %>').next('.error').text('<%= escape_javascript(error["message"]) %>').removeClass('inactive');
+  <% end %>
+<% end %>
+
+goal.formSubmitted = true;

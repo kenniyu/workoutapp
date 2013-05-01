@@ -1,0 +1,43 @@
+// Place all the styles related to the User controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Profile */
+
+
+.profile-wrapper {
+  overflow: hidden;
+  height: 480px;
+
+  .left {
+    height: 100%;
+    width: 280px;
+    float: left;
+    padding: 0px 20px 20px 0px;
+    border-right: 1px solid #d0d0d0;
+
+    figure {
+      padding: 20px;
+      border: 1px solid #ccc;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, .3),0 8px 6px -7px rgba(0, 0, 0, .8);
+      width: 260px;
+      height: 260px;
+      margin-bottom: 15px;
+    }
+  }
+
+  .right {
+    padding: 20px;
+    height: 100%;
+    margin-left: 280px;
+    border-left: 1px solid #fff;
+  }
+}
+
+.notes-wrapper {
+  padding-top: 85px;
+  .smart-list {
+    line-height: 20px;
+    text-indent: 20px;
+  }
+}

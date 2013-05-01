@@ -1,0 +1,73 @@
+
+<div class="eight columns goals-wrapper">
+  <h1>Your Goal: <%= @goal.name %></h1>
+  <%= render :partial => "show" %>
+</div>
+
+
+<div class="eight columns goals-details-wrapper">
+  <h2>Current Progress</h2>
+  <div class="fieldset">
+    <div class="left">
+      <label class="inline md">Current Weight</span>
+    </div>
+    <div class="right">
+      <span class="inline sm"><%= @goal.user.weight %> lbs</span>
+    </div>
+  </div>
+  <div class="fieldset">
+    <div class="left">
+      <label class="inline md">Weight Left til Goal</span>
+    </div>
+    <div class="right">
+      <span class="inline sm"><%= @goal.user.weight - @goal.final_value %> lbs</span>
+    </div>
+  </div>
+  <div class="fieldset">
+    <div class="left">
+      <label class="inline md">Status</span>
+    </div>
+    <div class="right">
+      <span class="inline sm">On Track!</span>
+    </div>
+  </div>
+
+  <hr class="md solid"/>
+
+  <h2>Caloric Breakdown</h2>
+  <p>Based on your goal of <em><%= @friendly_goal_type %></em>
+  by <em><%= @goal.due_date.strftime("%b %e, %Y") %> (<%= @calories_per_day_hash[:days_until_goal] %> days left)</em>
+  and a <em>nutrition/exercise</em> ratio of <strong>70/30</strong>,
+  we have determined you need to have a <em>caloric deficit</em> of <strong><%= @calories_per_day_hash[:daily_caloric_deficit] %>/day</strong>.
+  <em>Nutrition</em>: <strong><%= @calories_per_day_hash[:daily_nutrition_caloric_deficit] %></strong> & 
+  <em>Exercise</em>: <strong><%= @calories_per_day_hash[:daily_exercise_caloric_deficit] %></strong></p>
+
+  <div class="fieldset">
+    <div class="left">
+      <label class="inline md">Caloric Intake (Nutrition)</span>
+    </div>
+    <div class="right">
+      <span class="inline sm"><%= @calories_per_day_hash[:calories_to_gain_via_nutrition] %></span>
+    </div>
+  </div>
+
+  <div class="fieldset">
+    <div class="left">
+      <label class="inline md">Caloric Exhaustion (Exercise)</span>
+    </div>
+    <div class="right">
+      <span class="inline sm">- <%= @calories_per_day_hash[:calories_to_burn_per_day_via_exercise] %></span>
+    </div>
+  </div>
+
+
+  <div class="fieldset total">
+    <div class="left">
+      <label class="inline md">Total Calories/Day</span>
+    </div>
+    <div class="right">
+      <span class="inline sm"><%= @calories_per_day_hash[:target_calories_per_day] %></span>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,36 @@
+<h1>Dashboard</h1>
+<ul class="dashboard-options">
+  <%= link_to profile_path, do %>
+  <li class="dashboard-option">
+    <figure class="dashboard-icon profile"></figure>
+    <figcaption>
+    Profile
+    </figcaption>
+  </li>
+  <% end %>
+  <%= link_to goals_path, do %>
+  <li class="dashboard-option">
+    <figure class="dashboard-icon goals"></figure>
+    <figcaption>
+    Goals
+    </figcaption>
+  </li>
+  <% end %>
+  <br/>
+  <%= link_to "#", do %>
+  <li class="dashboard-option">
+    <figure class="dashboard-icon journal"></figure>
+    <figcaption>
+    Journal
+    </figcaption>
+  </li>
+  <% end %>
+  <%= link_to "#", do %>
+  <li class="dashboard-option">
+    <figure class="dashboard-icon progress"></figure>
+    <figcaption>
+     Progress
+    </figcaption>
+  </li>
+  <% end %>
+</ul>

@@ -1,0 +1,7 @@
+<h1>All Exercises</h1>
+
+<div class="exercises-wrapper">
+  <% @exercises.each do |exercise| %>
+    <p><%= link_to exercise.name, exercise_path(exercise.id) %></p>
+  <% end %>
+</div>
