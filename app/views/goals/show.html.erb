@@ -6,6 +6,38 @@
 
 
 <div class="eight columns goals-details-wrapper">
+
+  <hr class="md solid"/>
+
+  <p class="summary">Based on your goal of <em><%= @friendly_goal_type %></em>
+  by <em><%= @goal.due_date.strftime("%b %e, %Y") %> (<%= @calories_per_day_hash[:days_until_goal] %> days left)</em>
+  and a <em>nutrition/exercise</em> ratio of <strong><span class="nutrition-ratio"><%= @goal.nutrition %></span>/<span class="exercise-ratio"><%= @goal.exercise %></span></strong>,
+  we have determined you need to have a <em>caloric deficit</em> of <strong><%= @calories_per_day_hash[:daily_caloric_deficit] %>/day</strong>.
+  <em>Nutrition</em>: <strong class="nutrition-calories"><%= @calories_per_day_hash[:daily_nutrition_caloric_deficit] %></strong> & 
+  <em>Exercise</em>: <strong class="exercise-calories"><%= @calories_per_day_hash[:daily_exercise_caloric_deficit] %></strong></p>
+
+  <% if current_user.id == @goal.user_id && @goal.goal_type == "LF" %>
+  <h3>Nutrition/Exercise Ratio</h3>
+  <div class="slider-wrapper">
+    <div class="nutrition-wrapper slider-label">
+      <p><strong>Nutrition</strong></p>
+      <span class="ratio"><%= @goal.nutrition %>%</span>
+    </div>
+    <div class="inline sm slider"></div>
+    <div class="exercise-wrapper slider-label">
+      <p><strong>Exercise</strong></p>
+      <span class="ratio"><%= @goal.exercise %>%</span>
+    </div>
+  </div>
+  <p class="slider-status"></p>
+  <% else %>
+  <% end %>
+
+
+</div>
+
+<div class="sixteen columns">
+
   <h2>Current Progress</h2>
   <div class="fieldset">
     <div class="left">
@@ -32,42 +64,35 @@
     </div>
   </div>
 
-  <hr class="md solid"/>
-
-  <h2>Caloric Breakdown</h2>
-  <p>Based on your goal of <em><%= @friendly_goal_type %></em>
-  by <em><%= @goal.due_date.strftime("%b %e, %Y") %> (<%= @calories_per_day_hash[:days_until_goal] %> days left)</em>
-  and a <em>nutrition/exercise</em> ratio of <strong>70/30</strong>,
-  we have determined you need to have a <em>caloric deficit</em> of <strong><%= @calories_per_day_hash[:daily_caloric_deficit] %>/day</strong>.
-  <em>Nutrition</em>: <strong><%= @calories_per_day_hash[:daily_nutrition_caloric_deficit] %></strong> & 
-  <em>Exercise</em>: <strong><%= @calories_per_day_hash[:daily_exercise_caloric_deficit] %></strong></p>
-
-  <div class="fieldset">
-    <div class="left">
-      <label class="inline md">Caloric Intake (Nutrition)</span>
-    </div>
-    <div class="right">
-      <span class="inline sm"><%= @calories_per_day_hash[:calories_to_gain_via_nutrition] %></span>
-    </div>
-  </div>
-
-  <div class="fieldset">
-    <div class="left">
-      <label class="inline md">Caloric Exhaustion (Exercise)</span>
-    </div>
-    <div class="right">
-      <span class="inline sm">- <%= @calories_per_day_hash[:calories_to_burn_per_day_via_exercise] %></span>
-    </div>
-  </div>
-
-
-  <div class="fieldset total">
-    <div class="left">
-      <label class="inline md">Total Calories/Day</span>
-    </div>
-    <div class="right">
-      <span class="inline sm"><%= @calories_per_day_hash[:target_calories_per_day] %></span>
-    </div>
-  </div>
-
 </div>
+
+  <script type="text/javascript">
+    $().ready(function() {
+      var slideSaveTimer;
+      $('.slider').slider({
+        range: 'max',
+        min: 0,
+        max: 100,
+        value:  <%= @goal.nutrition %>,
+        slide: function( event, ui ) {
+          clearTimeout(slideSaveTimer);
+          var nutritionPct  = ui.value,
+              exercisePct   = 100 - nutritionPct;
+          $('.nutrition-wrapper .ratio').text(nutritionPct + '%');
+          $('.exercise-wrapper .ratio').text(exercisePct + '%');
+
+          slideSaveTimer = setTimeout(function() {
+            $.ajax({
+              url: '<%= goal_path(@goal) %>',
+              data: {
+                'change': 'ne-ratio',
+                'nutrition': nutritionPct,
+                'exercise': exercisePct
+              },
+              type: 'PUT'
+            });
+          }, 1000);
+        }
+      });
+    });
+  </script>

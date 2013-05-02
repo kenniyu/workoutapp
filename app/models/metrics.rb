@@ -91,8 +91,11 @@ class Metrics < ActiveRecord::Base
       logger.debug(days_until_goal)
 
       daily_caloric_deficit = weight_loss_per_day * 3500
-      daily_exercise_caloric_deficit = daily_caloric_deficit * 0.3
-      daily_nutrition_caloric_deficit = daily_caloric_deficit * 0.7
+      nutrition_ratio = goal.nutrition / 100.to_f
+      exercise_ratio = goal.exercise / 100.to_f
+
+      daily_exercise_caloric_deficit = daily_caloric_deficit * exercise_ratio
+      daily_nutrition_caloric_deficit = daily_caloric_deficit * nutrition_ratio
 
       target_calories_per_day = self.get_body_metrics(user)[:hbf].to_f - daily_caloric_deficit
       target_calories_per_day_with_exercise = target_calories_per_day + daily_exercise_caloric_deficit
@@ -100,8 +103,8 @@ class Metrics < ActiveRecord::Base
       return {
         :days_until_goal => days_until_goal,
         :daily_caloric_deficit => daily_caloric_deficit.round,
-        :daily_exercise_caloric_deficit => (daily_caloric_deficit * 0.3).round,
-        :daily_nutrition_caloric_deficit => (daily_caloric_deficit * 0.7).round,
+        :daily_exercise_caloric_deficit => (daily_exercise_caloric_deficit).round,
+        :daily_nutrition_caloric_deficit => (daily_nutrition_caloric_deficit).round,
         :calories_to_gain_via_nutrition => target_calories_per_day_with_exercise.round,
         :calories_to_burn_per_day_via_exercise => daily_exercise_caloric_deficit.round,
         :target_calories_per_day => target_calories_per_day.round

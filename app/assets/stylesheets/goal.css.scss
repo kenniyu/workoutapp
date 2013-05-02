@@ -20,6 +20,11 @@ ul.goals-list {
   font-weight: bold;
 }
 
+h3 {
+  text-align: center;
+  color: #000;
+}
+
 .goal-preview-wrapper {
   z-index: 1;
   padding: 20px;
@@ -44,4 +49,19 @@ ul.goals-list {
 
 .goals-details-wrapper {
   margin-top: 40px;
+}
+
+/* Slider */
+.slider-label {
+  display: inline-block;
+  width: 80px;
+  height: 55px;
+  text-align: center;
+}
+.slider {
+  height: 55px;
+  width: 290px;
+}
+.slider-status {
+  text-align: center;
 }

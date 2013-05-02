@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130325043220) do
+ActiveRecord::Schema.define(:version => 20130502030856) do
 
   create_table "equipment", :force => true do |t|
     t.string   "name"
@@ -45,9 +45,11 @@ ActiveRecord::Schema.define(:version => 20130325043220) do
     t.float    "start_value"
     t.float    "final_value"
     t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
     t.string   "name"
+    t.integer  "nutrition",   :default => 70
+    t.integer  "exercise",    :default => 30
   end
 
   create_table "muscles", :force => true do |t|

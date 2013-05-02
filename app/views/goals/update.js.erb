@@ -1,0 +1,11 @@
+<% if @success %>
+  $('.summary .nutrition-ratio').text('<%= @nutrition_pct %>');
+  $('.summary .exercise-ratio').text('<%= @exercise_pct %>');
+
+  $('.summary .nutrition-calories').text('<%= @calories_per_day_hash[:daily_nutrition_caloric_deficit] %>');
+  $('.summary .exercise-calories').text('<%= @calories_per_day_hash[:daily_exercise_caloric_deficit] %>');
+
+  $('.slider-status').text('Saved!').show().delay(5000).fadeOut();
+<% else %>
+  $('.slider-status').text('Sorry, we could not update this ratio. Please slide again.');
+<% end %>

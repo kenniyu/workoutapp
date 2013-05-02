@@ -1,3 +1,4 @@
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
   <div class="fieldset">
     <div class="left">
       <label class="inline sm">Goal</span>
@@ -40,6 +41,33 @@
     </div>
     <div class="right">
       <span class="inline sm"><%= @goal.description %></span>
+    </div>
+  </div>
+
+  <div class="fieldset">
+    <div class="left">
+      <label class="inline md">Caloric Intake (Nutrition)</span>
+    </div>
+    <div class="right">
+      <span class="inline sm"><%= @calories_per_day_hash[:calories_to_gain_via_nutrition] %></span>
+    </div>
+  </div>
+
+  <div class="fieldset">
+    <div class="left">
+      <label class="inline md">Caloric Exhaustion (Exercise)</span>
+    </div>
+    <div class="right">
+      <span class="inline sm">- <%= @calories_per_day_hash[:calories_to_burn_per_day_via_exercise] %></span>
+    </div>
+  </div>
+
+  <div class="fieldset total">
+    <div class="left">
+      <label class="inline md">Total Calories/Day</span>
+    </div>
+    <div class="right">
+      <span class="inline sm"><%= @calories_per_day_hash[:target_calories_per_day] %></span>
     </div>
   </div>
 

@@ -699,6 +699,21 @@ form .error.inactive {
 				width: 100%;
 			}
 
+/* Slider */
+.slider {
+  margin-top: 17px;
+  display: inline-block;
+}
+.slider.ui-widget-content {
+  background: rgba(130, 214, 23, 1);
+}
+.slider .ui-slider-range {
+  background: rgba(235, 200, 91, 1);
+}
+.slider .ui-slider-handle.ui-state-default {
+  border: 1px solid rgb(150, 150, 150);
+}
+
 /* Activity Indicator ***********************************************/
 .spinner-container {
 	height: 200px;

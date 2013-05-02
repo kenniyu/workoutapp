@@ -57,4 +57,23 @@ class GoalsController < ApplicationController
     @goal.destroy
     redirect_to goals_path and return
   end
+
+  def update
+    @goal = Goal.find_by_id(params[:id])
+    render :nothing => true and return if @goal.nil?
+    render :nothing => true and return if @goal.user.id != current_user.id
+
+    goal_change = params[:change]
+    if goal_change == "ne-ratio"
+      @nutrition_pct = params[:nutrition]
+      @exercise_pct = params[:exercise]
+      @goal.nutrition = @nutrition_pct
+      @goal.exercise = @exercise_pct
+      if @goal.save
+        @success = true
+        @calories_per_day_hash = Metrics.get_daily_target_calories(@goal.user, @goal)
+      end
+    end
+    render 'update' and return
+  end
 end
